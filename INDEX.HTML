@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Reshvah Initiative — Rooted in Heritage, Flowing to the Future</title>
+<meta name="description" content="Reshvah Initiative is a youth-led movement documenting and reviving endangered heritage, beginning with Bhagalpur's silk weavers."/>
+<meta name="theme-color" content="#0A0705"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  /* ===== Reshvah brand palette v8 — light ivory/parchment museum register, matching the heritage-banner atmosphere (no logo/temple/boat copied, just tone) ===== */
+  --parchment:#F1E7D3;
+  --parchment-deep:#E6D8B9;
+  --pitch-deep:#181109;
+  --ink:#2B2015;
+  --maroon:#7C2020;
+  --maroon-dk:#551313;
+  --gold:#8A6423;
+  --gold-soft:#CDAE68;
+  --gold-dk:#7A5A1D;
+  --muted:#6B5B41;
+  --line:#DBCBA0;
+  --card:#FAF4E6;
+  --shadow:0 14px 40px rgba(43,27,14,.10);
+  --shadow-lg:0 24px 60px rgba(43,27,14,.16);
+  --radius:14px;
+  --radius-sm:9px;
+
+  --saffron:#FF9933;
+  --saffron-dk:#DE7C17;
+  --green:#128807;
+  --green-dk:#0D6605;
+  --navy:#0B1F4D;
+}
+
+#page-home{
+  --parchment:#FFF7E6;
+  --parchment-deep:#F5EAC9;
+  --card:#FFFFFF;
+  --ink:#211B12;
+  --muted:#6E6350;
+  --line:#E4D6AE;
+  --shadow:0 14px 44px rgba(33,27,18,.12);
+  --shadow-lg:0 24px 64px rgba(33,27,18,.18);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(ellipse 45% 32% at 6% 2%, rgba(138,100,35,.09), transparent 62%),
+    radial-gradient(ellipse 40% 30% at 97% 8%, rgba(138,100,35,.08), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 92% 96%, rgba(124,32,32,.06), transparent 58%),
+    radial-gradient(ellipse 42% 34% at 4% 88%, rgba(138,100,35,.07), transparent 58%),
+    repeating-linear-gradient(115deg, rgba(138,100,35,.028) 0 2px, transparent 2px 34px),
+    repeating-linear-gradient(25deg, rgba(138,100,35,.022) 0 1px, transparent 1px 30px),
+    var(--parchment);
+  color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden;line-height:1.65;}
+#tricolor-bar{height:5px;width:100%;background:linear-gradient(90deg,var(--saffron),#fff,var(--green));background-size:200% 100%;animation:shimmer 6s linear infinite;}
+@keyframes shimmer{0%{background-position:0% 0}100%{background-position:200% 0}}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;color:var(--ink);}
+.container{max-width:1140px;margin:0 auto;padding:0 26px;position:relative;z-index:1;}
+section{padding:76px 0;position:relative;overflow:hidden;}
+
+/* faint corner mandala — an original thin line-art rosette, watermarked into a page's opening section. No logo, temple, boat, or globe — atmosphere only. */
+.corner-mandala{position:absolute;top:-40px;right:-60px;width:300px;height:300px;opacity:.08;color:var(--maroon);pointer-events:none;z-index:0;}
+.corner-mandala.left{right:auto;left:-60px;}
+@media(max-width:700px){.corner-mandala{width:190px;height:190px;top:-15px;right:-65px;}.corner-mandala.left{left:-65px;}}
+
+/* flowing silk wave — thin hand-drawn-style curves echoing warp/weft threads, extremely low opacity, slow drift */
+.silk-wave{width:100%;max-width:1140px;margin:56px auto 0;padding:0 26px;color:var(--gold-dk);opacity:.16;pointer-events:none;}
+.silk-wave svg{width:100%;height:46px;display:block;}
+.silk-wave .l2{animation:silkDrift 26s ease-in-out infinite;}
+.silk-wave .l3{animation:silkDrift 32s ease-in-out infinite reverse;}
+@keyframes silkDrift{0%,100%{transform:translateX(0);}50%{transform:translateX(14px);}}
+
+.wave-divider{width:100%;color:var(--gold-soft);opacity:.5;margin:0 auto 30px;max-width:1140px;padding:0 26px;}
+.wave-divider svg{width:100%;height:16px;display:block;}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}
+}
+.eyebrow{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--maroon);font-weight:700;margin-bottom:12px;}
+.title{font-size:clamp(1.8rem,3.4vw,2.7rem);font-weight:700;line-height:1.22;}
+.title em{font-style:italic;color:var(--maroon);}
+.desc{font-size:1rem;color:var(--muted);max-width:680px;margin-top:14px;line-height:1.8;}
+.devnagari{font-family:'Noto Sans Devanagari',serif;}
+
+.thread-rule{display:flex;align-items:center;gap:12px;margin:20px 0 36px;max-width:340px;}
+.thread-rule::before,.thread-rule::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.thread-rule .knot{width:7px;height:7px;background:var(--maroon);border:1px solid var(--gold);transform:rotate(45deg);flex-shrink:0;}
+
+#ribbon{background:linear-gradient(90deg,var(--maroon-dk),var(--maroon));color:#F5E9CE;text-align:center;font-size:.76rem;letter-spacing:.03em;padding:9px 16px;font-weight:600;border-bottom:1px solid var(--gold-dk);}
+#ribbon strong{color:var(--gold-soft);}
+
+header{position:sticky;top:0;z-index:500;background:rgba(24,17,10,0.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+nav{display:flex;align-items:center;justify-content:space-between;padding:13px 26px;max-width:1140px;margin:0 auto;gap:18px;}
+.logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:#F5E9CE;display:flex;align-items:center;gap:10px;}
+.logo img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:1px solid var(--gold);flex-shrink:0;background:radial-gradient(circle,rgba(205,174,104,.22),rgba(205,174,104,.04));}
+.nav-links{display:flex;gap:22px;list-style:none;font-size:.79rem;font-weight:600;color:var(--muted);flex-wrap:wrap;}
+.nav-links a{padding:4px 0;border-bottom:2px solid transparent;transition:.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-soft);border-color:var(--gold);}
+.nav-cta{padding:9px 20px;border-radius:40px;background:var(--maroon);color:#F5E9CE;font-size:.76rem;font-weight:700;letter-spacing:.03em;transition:.2s;white-space:nowrap;border:1px solid var(--gold-dk);}
+.nav-cta:hover{background:var(--maroon-dk);}
+#hamburger{display:none;flex-direction:column;gap:5px;}
+#hamburger span{width:22px;height:2px;background:#F5E9CE;border-radius:2px;}
+#mobile-menu{position:fixed;inset:0;background:var(--pitch-deep);z-index:600;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;opacity:0;visibility:hidden;transition:.3s;}
+#mobile-menu.open{opacity:1;visibility:visible;}
+#mobile-menu a{font-family:'Playfair Display',serif;font-size:1.2rem;color:#F5E9CE;}
+#mobile-menu-close{position:absolute;top:22px;right:24px;font-size:1.6rem;color:var(--gold-soft);}
+
+/* ===== Logo entrance animation — applies wherever the CDN logo image is used (header, footer, hero). Fades/scales in the instant the image finishes loading, instead of popping in late. ===== */
+.brand-logo-img{opacity:0;transform:scale(.8) rotate(-8deg);filter:blur(7px);transition:opacity .65s cubic-bezier(.2,.8,.25,1),transform .65s cubic-bezier(.2,.8,.25,1),filter .65s cubic-bezier(.2,.8,.25,1);}
+.brand-logo-img.loaded{opacity:1;transform:scale(1) rotate(0deg);filter:blur(0);}
+
+footer{background:var(--pitch-deep);color:#D9CCAF;padding:52px 0 24px;border-top:1px solid var(--line);}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:32px;}
+.footer-brand{display:flex;gap:14px;align-items:flex-start;}
+.footer-brand img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:1px solid var(--gold-soft);flex-shrink:0;background:radial-gradient(circle,rgba(205,174,104,.18),rgba(205,174,104,.04));}
+.footer-brand h3{color:#F5E9CE;font-size:1.1rem;margin-bottom:6px;}
+.footer-brand p{font-size:.82rem;color:#B7A98A;line-height:1.7;max-width:320px;font-style:italic;}
+.footer-col h4{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:12px;font-weight:700;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.footer-col a{font-size:.82rem;color:#C9BC9E;transition:.2s;}
+.footer-col a:hover{color:#fff;}
+.footer-bottom-cta{text-align:center;margin-bottom:30px;padding:26px 20px;border:1px solid var(--line);border-radius:var(--radius);background:rgba(198,160,70,.04);}
+.footer-bottom-cta h4{color:var(--gold-soft);font-size:1rem;margin-bottom:6px;font-family:'Playfair Display',serif;}
+.footer-bottom-cta p{font-size:.8rem;color:#B7A98A;margin-bottom:16px;}
+.footer-bottom-cta .fb-email{display:block;font-size:.78rem;color:#C9BC9E;margin-top:12px;}
+.footer-bottom-cta .fb-email a{color:var(--gold-soft);font-weight:600;}
+.footer-bottom{border-top:1px solid rgba(217,204,175,0.14);padding-top:20px;text-align:center;font-size:.74rem;color:#8f8367;line-height:1.8;}
+
+.page{display:none;}
+.page.active{display:block;animation:fadeIn .35s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+#page-home #home-hero{padding:46px 0 60px;position:relative;overflow:hidden;background:
+  radial-gradient(ellipse 60% 46% at 14% -4%, rgba(255,178,71,.42), transparent 60%),
+  radial-gradient(ellipse 60% 46% at 86% 104%, rgba(18,136,7,.24), transparent 60%),
+  radial-gradient(ellipse 46% 60% at 100% 8%, rgba(124,32,32,.14), transparent 62%),
+  radial-gradient(ellipse 50% 42% at 50% 38%, rgba(198,160,70,.16), transparent 66%),
+  repeating-linear-gradient(118deg, rgba(138,100,35,.05) 0 2px, transparent 2px 26px),
+  repeating-linear-gradient(28deg, rgba(138,100,35,.04) 0 1.5px, transparent 1.5px 24px),
+  linear-gradient(180deg,#FFF3DC 0%,#FFFBF2 42%,#FBF6E6 100%);}
+#page-home #home-hero::before{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.55), transparent 45%),
+    linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(255,247,230,.55) 100%);}
+#chakra-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:1;pointer-events:none;}
+.bunting{display:flex;justify-content:center;gap:6px;padding:0 10px 22px;position:relative;z-index:2;flex-wrap:wrap;}
+.bunting span{width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-top:16px solid var(--saffron);opacity:.9;}
+.bunting span:nth-child(3n+2){border-top-color:#fff;box-shadow:0 0 0 1px var(--line) inset;}
+.bunting span:nth-child(3n){border-top-color:var(--green);}
+.home-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.launch-pill{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(90deg,var(--saffron),#fff 50%,var(--green));border:none;border-radius:40px;padding:3px;font-size:.8rem;font-weight:800;color:var(--navy);box-shadow:0 12px 30px rgba(11,31,77,.18);margin-bottom:30px;}
+.launch-pill span.inner{display:flex;align-items:center;gap:9px;background:#fff;border-radius:38px;padding:9px 22px;}
+.launch-pill .dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:blink 1.4s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.home-logo-badge{width:180px;height:180px;border-radius:50%;overflow:hidden;border:4px solid #fff;box-shadow:0 0 0 4px var(--saffron),0 0 0 8px #fff,0 0 0 12px var(--green),0 20px 50px rgba(11,31,77,.28);margin-bottom:26px;background:radial-gradient(circle,rgba(205,174,104,.22),#fff);}
+.home-logo-badge img{width:100%;height:100%;object-fit:cover;}
+.home-wordmark{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;letter-spacing:.04em;color:var(--ink);}
+.home-tagline{font-family:'Playfair Display',serif;font-style:italic;font-size:.92rem;color:var(--maroon);margin-top:4px;margin-bottom:30px;}
+.home-headline{font-size:clamp(2.1rem,5.4vw,3.9rem);font-weight:900;line-height:1.12;max-width:840px;color:var(--navy);}
+.home-headline .accent{background:linear-gradient(90deg,var(--saffron-dk),var(--maroon) 55%,var(--green-dk));-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic;}
+.home-sub{max-width:620px;margin-top:22px;font-size:1.05rem;color:var(--muted);line-height:1.8;}
+.home-cta{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:38px;}
+.btn{padding:14px 28px;border-radius:44px;font-size:.82rem;font-weight:700;letter-spacing:.03em;display:inline-flex;align-items:center;gap:8px;transition:.25s;}
+.btn-primary{background:linear-gradient(120deg,var(--saffron),var(--maroon) 70%);color:#fff;box-shadow:0 10px 30px rgba(222,124,23,.38);}
+.btn-primary:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 14px 36px rgba(222,124,23,.48);}
+.btn-outline{border:2px solid var(--green);color:var(--green-dk);background:#fff;font-weight:800;}
+.btn-outline:hover{background:var(--green);color:#fff;transform:translateY(-2px);}
+.home-tri{width:120px;height:7px;border-radius:8px;margin:34px auto 0;background:linear-gradient(90deg,var(--saffron) 0 33%,#fff 33% 66%,var(--green) 66% 100%);box-shadow:0 3px 10px rgba(0,0,0,.2);}
+
+.home-inner .launch-pill,.home-inner .home-logo-float,.home-inner .home-wordmark,.home-inner .home-tagline,.home-inner .home-headline,.home-inner .home-sub,.home-inner .home-cta,.home-inner .home-tri{opacity:0;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+@keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
+.home-inner.play .launch-pill{animation:fadeUp .6s ease forwards;}
+.home-inner.play .home-logo-float{animation:logoMaterialize 1.05s cubic-bezier(.2,.8,.25,1) .08s forwards;}
+.home-inner.play .home-wordmark{animation:fadeUp .6s .32s ease forwards;}
+.home-inner.play .home-tagline{animation:fadeUp .6s .42s ease forwards;}
+.home-inner.play .home-headline{animation:fadeUp .7s .52s ease forwards;}
+.home-inner.play .home-sub{animation:fadeUp .7s .64s ease forwards;}
+.home-inner.play .home-cta{animation:fadeUp .7s .76s ease forwards;}
+.home-inner.play .home-tri{animation:fadeUp .7s .86s ease forwards;}
+
+.home-logo-float{display:inline-block;position:relative;}
+@keyframes logoMaterialize{
+  0%{opacity:0; transform:scale(.5) rotate(-10deg); filter:blur(9px);}
+  55%{opacity:1; transform:scale(1.08) rotate(3deg); filter:blur(0);}
+  75%{transform:scale(.97) rotate(-1deg);}
+  100%{opacity:1; transform:scale(1) rotate(0deg); filter:blur(0);}
+}
+.logo-glow-ring{position:absolute;inset:-22px;border-radius:50%;background:radial-gradient(circle, rgba(255,201,102,.6), transparent 68%);opacity:0;pointer-events:none;}
+@keyframes glowBurst{
+  0%{opacity:.95; transform:scale(.35);}
+  55%{opacity:.55; transform:scale(1.25);}
+  100%{opacity:0; transform:scale(1.75);}
+}
+.home-inner.play .logo-glow-ring{animation:glowBurst 1.15s ease-out .08s forwards;}
+.home-logo-badge{animation:floatY 4.5s ease-in-out infinite;}
+
+.charkha-wrap{position:absolute;right:-20px;top:38%;transform:translateY(-50%);width:320px;height:320px;z-index:1;opacity:.14;color:var(--navy);pointer-events:none;}
+.charkha-wrap.small{right:auto;left:-10px;top:78%;width:200px;height:200px;opacity:.12;}
+.charkha-wheel{width:100%;height:100%;animation:charkhaSpin 60s linear infinite;transform-origin:50% 50%;}
+.charkha-wrap.small .charkha-wheel{animation-duration:46s;animation-direction:reverse;}
+@keyframes charkhaSpin{to{transform:rotate(360deg);}}
+@media(max-width:860px){.charkha-wrap{width:220px;height:220px;}.charkha-wrap.small{width:140px;height:140px;}}
+@media(max-width:560px){.charkha-wrap{opacity:.1;width:170px;height:170px;}.charkha-wrap.small{width:110px;height:110px;}}
+
+#home-launcher{background:var(--card);border-top:1px solid var(--line);}
+.launcher-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-top:36px;}
+.launcher-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--saffron);border-radius:var(--radius);padding:24px 16px;text-align:center;box-shadow:var(--shadow);transition:.2s;}
+.launcher-card:nth-child(3n+2){border-top-color:var(--green);}
+.launcher-card:nth-child(3n){border-top-color:var(--navy);}
+.launcher-card:hover{transform:translateY(-5px) scale(1.02);box-shadow:var(--shadow-lg);}
+.launcher-card .lic{font-size:1.85rem;margin-bottom:10px;}
+.launcher-card .lt{font-family:'Playfair Display',serif;font-weight:700;font-size:.92rem;color:var(--ink);}
+.launcher-card .ld{font-size:.72rem;color:var(--muted);margin-top:4px;}
+
+#home-film{background:var(--parchment);}
+.film-wrap{margin-top:32px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);background:#000;}
+.film-wrap video{width:100%;display:block;max-height:480px;background:#000;}
+.film-meta{padding:16px 20px;background:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.film-meta h3{font-size:1rem;}
+.film-meta p{font-size:.8rem;color:var(--muted);}
+
+.back-home{display:inline-flex;align-items:center;gap:7px;font-size:.78rem;font-weight:700;color:var(--maroon);margin-bottom:22px;padding:7px 16px 7px 6px;border:1px solid var(--line);border-radius:40px;background:var(--card);transition:.2s;}
+.back-home:hover{border-color:var(--gold);background:var(--parchment-deep);transform:translateX(-2px);}
+.back-home .arrow{width:22px;height:22px;border-radius:50%;background:var(--maroon);color:#F5E9CE;display:flex;align-items:center;justify-content:center;font-size:.8rem;}
+
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:38px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:38px;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);transition:.25s;}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--gold-dk);}
+.card .ic{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;background:rgba(198,160,70,.14);border:1px solid var(--gold-dk);margin-bottom:14px;}
+.card h3{font-size:1rem;margin-bottom:7px;}
+.card p{font-size:.86rem;color:var(--muted);line-height:1.65;}
+.card ul{margin-top:10px;padding-left:18px;}
+.card li{font-size:.85rem;color:var(--muted);margin-bottom:7px;line-height:1.6;}
+.alt-bg{background:var(--parchment-deep);}
+
+.dark-band{background:linear-gradient(160deg,var(--pitch-deep),#0A0603);color:#F2E8D3;border-radius:var(--radius);position:relative;overflow:hidden;border:1px solid var(--line);}
+.dark-band::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(169,130,47,.06) 0 2px,transparent 2px 22px);pointer-events:none;}
+
+.stats-bar{padding:30px 26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:18px;margin-top:34px;position:relative;z-index:1;}
+.stats-bar .stat{text-align:center;}
+.stats-bar .stat-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold-soft);}
+.stats-bar .stat-label{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#C9BC9E;margin-top:4px;}
+.stats-bar .stat-src{font-size:.6rem;color:#8a7d61;margin-top:2px;}
+
+.flow{margin-top:46px;position:relative;padding-left:28px;border-left:2px solid var(--gold);}
+.flow-item{position:relative;padding-bottom:42px;}
+.flow-item:last-child{padding-bottom:0;}
+.flow-item::before{content:'';position:absolute;left:-34px;top:3px;width:13px;height:13px;border-radius:50%;background:var(--maroon);border:2px solid var(--gold);}
+.flow-tag{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--maroon);font-weight:800;}
+.flow-item h4{font-family:'Playfair Display',serif;font-size:1.18rem;margin:4px 0 9px;color:var(--ink);}
+.flow-item p{font-size:.9rem;color:var(--muted);line-height:1.8;max-width:660px;}
+
+.role-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:30px;}
+.role-card{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--radius-sm);padding:20px;}
+.role-card .rc-ic{font-size:1.3rem;margin-bottom:8px;}
+.role-card h4{font-family:'Playfair Display',serif;font-size:.96rem;color:var(--maroon);margin-bottom:6px;}
+.role-card p{font-size:.81rem;color:var(--muted);line-height:1.6;}
+
+.pull-quote{background:var(--card);border-left:4px solid var(--maroon);border-radius:var(--radius-sm);padding:30px 32px;box-shadow:var(--shadow);}
+.pull-quote .pq-label{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px;}
+.pull-quote blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem;color:var(--ink);line-height:1.65;}
+
+.heritage-band{background:var(--pitch-deep);color:#F2E8D3;border-radius:var(--radius);padding:32px 34px;margin-top:38px;border:1px solid var(--line);}
+.heritage-band p{font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;line-height:1.7;}
+.heritage-band span.lbl{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:10px;}
+.origin-block{display:flex;align-items:center;gap:22px;margin-top:38px;flex-wrap:wrap;}
+.origin-words{font-family:'Noto Sans Devanagari',serif;font-size:1.5rem;color:var(--maroon);font-weight:700;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.origin-words .plus,.origin-words .eq{color:var(--gold);font-family:'Inter',sans-serif;font-weight:400;}
+.badge-youth{display:inline-flex;align-items:center;gap:8px;background:rgba(138,100,35,.12);border:1px solid var(--gold-dk);border-radius:40px;padding:8px 18px;font-size:.76rem;font-weight:700;color:var(--maroon);margin-top:6px;}
+
+.hist-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:36px;}
+.hist-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:20px;}
+.hist-card h4{font-size:.9rem;color:var(--maroon);margin-bottom:7px;font-family:'Playfair Display',serif;}
+.hist-card p{font-size:.82rem;color:var(--muted);line-height:1.6;}
+.hist-quote{background:var(--card);border-left:3px solid var(--gold);border-radius:var(--radius-sm);padding:18px 20px;margin-top:28px;}
+.hist-quote blockquote{font-family:'Playfair Display',serif;font-style:italic;font-size:.95rem;color:var(--ink);}
+.hist-quote cite{display:block;margin-top:8px;font-size:.7rem;color:var(--muted);font-style:normal;}
+.src-note{background:rgba(198,160,70,.08);border:1px solid var(--gold-dk);border-radius:var(--radius-sm);padding:14px 18px;font-size:.78rem;color:var(--muted);margin-top:26px;line-height:1.7;}
+
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;margin-top:30px;}
+.gal-tile{aspect-ratio:4/3.4;border-radius:var(--radius-sm);position:relative;overflow:hidden;border:1px solid var(--line);display:flex;align-items:flex-end;padding:18px;box-shadow:var(--shadow);transition:transform .3s ease,box-shadow .3s ease;}
+.gal-tile:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.gal-tile span{position:relative;z-index:2;font-size:.9rem;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.5);display:flex;align-items:center;gap:8px;}
+
+.gal-tile.video img{transition:transform .6s ease;}
+.gal-tile.video:hover img{transform:scale(1.07);}
+.video-tag{position:absolute;top:14px;right:14px;z-index:3;font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#fff;background:rgba(20,14,8,.42);border:1px solid rgba(231,196,104,.55);border-radius:20px;padding:4px 11px;backdrop-filter:blur(3px);}
+.play-badge{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;border:1.5px solid rgba(255,255,255,.8);background:rgba(20,14,8,.3);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;z-index:3;transition:transform .3s ease,background .3s ease,border-color .3s ease;}
+.play-badge svg{width:15px;height:15px;fill:#fff;margin-left:2px;}
+.gal-tile.video:hover .play-badge{transform:translate(-50%,-50%) scale(1.14);border-color:var(--gold-soft);background:rgba(20,14,8,.5);}
+.watch-hint{position:absolute;left:50%;top:calc(42% + 38px);transform:translateX(-50%);font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:#fff;opacity:0;transition:opacity .3s ease;z-index:3;text-shadow:0 1px 4px rgba(0,0,0,.6);white-space:nowrap;}
+.gal-tile.video:hover .watch-hint{opacity:.95;}
+
+.gal-tile img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+.gal-tile::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    160deg,
+    rgba(99,30,23,.12),
+    rgba(18,11,6,.48)
+  );
+  z-index:1;
+}
+.gal-tile::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.55),transparent 60%);}
+.chapter-soon{margin-top:20px;border:1.5px dashed var(--gold);border-radius:var(--radius);padding:30px;text-align:center;color:var(--muted);font-size:.88rem;}
+
+.doc-video{margin-top:28px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);background:#000;}
+.doc-video video{width:100%;display:block;max-height:520px;background:#000;}
+.doc-video-meta{padding:18px 22px;background:var(--card);}
+
+.doc-video-main{position:relative;border:1px solid var(--gold-dk);box-shadow:0 26px 70px rgba(43,27,14,.22);}
+.doc-video-main video{max-height:560px;}
+.doc-main-badge{position:absolute;top:16px;left:16px;z-index:4;display:inline-flex;align-items:center;gap:6px;background:linear-gradient(120deg,var(--maroon),var(--maroon-dk));color:#F5E9CE;font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:8px 16px;border-radius:40px;border:1px solid var(--gold-soft);box-shadow:0 8px 20px rgba(0,0,0,.35);}
+.doc-video-main .doc-video-meta{border-top:3px solid var(--gold);}
+
+.doc-teaser-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px;}
+.doc-teaser{background:#000;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);position:relative;transition:transform .25s ease,box-shadow .25s ease;}
+.doc-teaser:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+.doc-teaser video{width:100%;display:block;max-height:260px;background:#000;}
+.doc-teaser-frame{width:100%;height:260px;display:block;background:#000;border:0;}
+.doc-teaser-tag{position:absolute;top:12px;left:12px;z-index:4;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#fff;background:rgba(20,14,8,.6);border:1px solid rgba(231,196,104,.6);border-radius:20px;padding:5px 12px;backdrop-filter:blur(3px);}
+.doc-teaser-meta{padding:16px 18px;background:var(--card);}
+.doc-teaser-meta h4{font-size:.92rem;margin-bottom:6px;font-family:'Playfair Display',serif;color:var(--ink);}
+.doc-teaser-meta p{font-size:.8rem;color:var(--muted);line-height:1.6;}
+@media(max-width:760px){.doc-teaser-grid{grid-template-columns:1fr;}}
+
+.mini-video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:14px;margin-top:22px;}
+.mini-video-tile{position:relative;aspect-ratio:1/1;border-radius:10px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);cursor:pointer;transition:transform .25s ease,box-shadow .25s ease;display:block;}
+.mini-video-tile:hover{transform:translateY(-3px) scale(1.03);box-shadow:var(--shadow-lg);}
+.mini-video-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.mini-video-tile::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(99,30,23,.14),rgba(18,11,6,.5));z-index:1;}
+.mini-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;border:1.2px solid rgba(255,255,255,.85);background:rgba(20,14,8,.35);backdrop-filter:blur(2px);display:flex;align-items:center;justify-content:center;z-index:2;transition:transform .25s ease,background .25s ease;}
+.mini-play svg{width:10px;height:10px;fill:#fff;margin-left:1px;}
+.mini-video-tile:hover .mini-play{transform:translate(-50%,-50%) scale(1.15);background:rgba(20,14,8,.55);border-color:var(--gold-soft);}
+.mini-video-label{position:absolute;left:0;right:0;bottom:0;z-index:2;font-size:.62rem;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6);padding:6px 8px;text-align:center;}
+.mini-video-hint{text-align:center;font-size:.76rem;color:var(--muted);margin-top:12px;}
+
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:38px;}
+.team-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);text-align:center;}
+.team-photo{width:84px;height:84px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(135deg,rgba(198,160,70,.22),rgba(198,160,70,.06));border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.9rem;overflow:hidden;}
+.team-photo img{width:100%;height:100%;object-fit:cover;}
+.team-name{font-size:1.05rem;font-weight:700;color:var(--ink);}
+.team-role{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--maroon);margin-top:4px;font-weight:700;}
+.team-bio{font-size:.82rem;color:var(--muted);margin-top:10px;line-height:1.6;}
+.team-card.open-role{border:1.5px dashed var(--gold);box-shadow:none;}
+.team-card.open-role .team-photo{background:var(--parchment-deep);border-style:dashed;color:var(--gold);}
+.team-card.open-role .team-role{color:var(--gold-soft);background:var(--pitch-deep);display:inline-block;padding:3px 10px;border-radius:20px;margin-top:6px;}
+.team-card.open-role a.apply-link{display:inline-block;margin-top:12px;font-size:.78rem;font-weight:700;color:var(--maroon);}
+.founder-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:38px;}
+.founder-row .team-card{border-top:3px solid var(--gold);}
+.founder-row .team-photo{width:150px;height:150px;border-width:3px;margin-bottom:18px;}
+.founder-row .team-name{font-size:1.2rem;}
+.founder-row .team-role{font-size:.8rem;}
+.founder-row .team-bio{font-size:.9rem;}
+
+.form-wrap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);margin-top:32px;}
+.form-tabs{display:flex;gap:6px;margin-bottom:24px;background:var(--parchment-deep);border-radius:40px;padding:5px;width:fit-content;}
+.form-tab-btn{padding:9px 20px;border-radius:40px;font-size:.76rem;font-weight:700;color:var(--muted);}
+.form-tab-btn.active{background:var(--maroon);color:#fff;}
+.form-panel{display:none;}
+.form-panel.active{display:block;}
+.form-group{margin-bottom:16px;}
+label{display:block;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--maroon);font-weight:700;margin-bottom:6px;}
+input,textarea,select{width:100%;background:var(--parchment);border:1.5px solid var(--line);border-radius:var(--radius-sm);color:var(--ink);font-family:'Inter',sans-serif;font-size:.9rem;padding:11px 14px;outline:none;transition:border-color .2s;}
+input:focus,textarea:focus,select:focus{border-color:var(--gold);}
+textarea{min-height:100px;resize:vertical;}
+.form-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:4px;}
+.status-msg{margin-top:12px;font-size:.82rem;font-weight:600;display:none;}
+.contact-info-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);}
+.contact-info-card h3{font-size:1rem;margin-bottom:14px;}
+.contact-row{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted);margin-bottom:11px;}
+.contact-row .ic2{color:var(--maroon);font-size:1rem;}
+.linkedin-card{background:linear-gradient(135deg,#0A66C2,#084b8f);border-radius:var(--radius);padding:26px;color:#fff;box-shadow:var(--shadow);margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.linkedin-card h3{color:#fff;font-size:1rem;}
+.linkedin-card p{font-size:.82rem;color:#dbeaf9;margin-top:4px;max-width:380px;}
+.linkedin-card a{background:#fff;color:#0A66C2;padding:11px 22px;border-radius:40px;font-size:.8rem;font-weight:700;white-space:nowrap;}
+
+@media(max-width:900px){
+  .nav-links{display:none;}
+  #hamburger{display:flex;}
+  .grid-2{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .origin-block{flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:520px){
+  section{padding:54px 0;}
+}
+</style>
+</head>
+<body>
+<div id="ribbon">🇮🇳 <strong>Bhagalpur Chapter launched 15 August 2026 — Independence Day</strong> · one heritage, done properly, first</div>
+
+<header>
+  <nav>
+    <a href="#home" class="logo"><img class="brand-logo-img" onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" src="https://cdn.corenexis.com/f/pyA8ZfWpp0g.jpeg" alt="Reshvah Initiative logo"/>Reshvah Initiative</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" data-page="home">Home</a></li>
+      <li><a href="#about" data-page="about">About</a></li>
+      <li><a href="#vision-mission" data-page="vision-mission">Vision &amp; Mission</a></li>
+      <li><a href="#bhagalpur" data-page="bhagalpur">Bhagalpur</a></li>
+      <li><a href="#gallery" data-page="gallery">Gallery</a></li>
+      <li><a href="#documentary" data-page="documentary">Documentary</a></li>
+      <li><a href="#team" data-page="team">Core Team</a></li>
+    </ul>
+    <a href="#get-involved" class="nav-cta">Get Involved</a>
+    <button id="hamburger" aria-label="Open menu" onclick="document.getElementById('mobile-menu').classList.add('open')"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div id="mobile-menu">
+  <button id="mobile-menu-close" onclick="document.getElementById('mobile-menu').classList.remove('open')" aria-label="Close menu">✕</button>
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#vision-mission" onclick="closeMenu()">Vision &amp; Mission</a>
+  <a href="#bhagalpur" onclick="closeMenu()">Bhagalpur</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#documentary" onclick="closeMenu()">Documentary</a>
+  <a href="#team" onclick="closeMenu()">Core Team</a>
+  <a href="#get-involved" onclick="closeMenu()">Get Involved</a>
+  <a href="#contact" onclick="closeMenu()">Contact Us</a>
+</div>
+
+<div class="page" id="page-home">
+  <section id="home-hero">
+    <canvas id="chakra-canvas" aria-hidden="true"></canvas>
+    <div class="charkha-wrap" aria-hidden="true">
+      <svg viewBox="0 0 200 200" class="charkha-wheel">
+        <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <circle cx="100" cy="100" r="3" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="1">
+          <line x1="100" y1="100" x2="190" y2="100"/>
+          <line x1="100" y1="100" x2="177.6" y2="145"/>
+          <line x1="100" y1="100" x2="145" y2="177.6"/>
+          <line x1="100" y1="100" x2="100" y2="190"/>
+          <line x1="100" y1="100" x2="55" y2="177.6"/>
+          <line x1="100" y1="100" x2="22.4" y2="145"/>
+          <line x1="100" y1="100" x2="10" y2="100"/>
+          <line x1="100" y1="100" x2="22.4" y2="55"/>
+          <line x1="100" y1="100" x2="55" y2="22.4"/>
+          <line x1="100" y1="100" x2="100" y2="10"/>
+          <line x1="100" y1="100" x2="145" y2="22.4"/>
+          <line x1="100" y1="100" x2="177.6" y2="55"/>
+        </g>
+      </svg>
+    </div>
+    <div class="charkha-wrap small" aria-hidden="true">
+      <svg viewBox="0 0 200 200" class="charkha-wheel">
+        <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <circle cx="100" cy="100" r="3" fill="currentColor"/>
+        <g stroke="currentColor" stroke-width="1">
+          <line x1="100" y1="100" x2="190" y2="100"/>
+          <line x1="100" y1="100" x2="177.6" y2="145"/>
+          <line x1="100" y1="100" x2="145" y2="177.6"/>
+          <line x1="100" y1="100" x2="100" y2="190"/>
+          <line x1="100" y1="100" x2="55" y2="177.6"/>
+          <line x1="100" y1="100" x2="22.4" y2="145"/>
+          <line x1="100" y1="100" x2="10" y2="100"/>
+          <line x1="100" y1="100" x2="22.4" y2="55"/>
+          <line x1="100" y1="100" x2="55" y2="22.4"/>
+          <line x1="100" y1="100" x2="100" y2="10"/>
+          <line x1="100" y1="100" x2="145" y2="22.4"/>
+          <line x1="100" y1="100" x2="177.6" y2="55"/>
+        </g>
+      </svg>
+    </div>
+    <div class="bunting" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="container home-inner">
+      <div class="launch-pill"><span class="inner"><span class="dot" aria-hidden="true"></span>🇮🇳 India's 80th Independence Day · 15 August 2026</span></div>
+      <div class="home-logo-float"><div class="logo-glow-ring" aria-hidden="true"></div><div class="home-logo-badge"><img class="brand-logo-img" onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" src="https://cdn.corenexis.com/f/pyA8ZfWpp0g.jpeg" alt="Reshvah Initiative emblem"/></div></div>
+      <div class="home-wordmark">RESHVAH INITIATIVE</div>
+      <div class="home-tagline">Rooted in heritage, flowing to the future.</div>
+      <h1 class="home-headline">Heritage doesn't have to <span class="accent">disappear quietly.</span></h1>
+      <p class="home-sub">Bhagalpur's weavers have kept a 200-year-old silk tradition alive by hand. On the day India marks her own independence, we're launching Reshvah's first chapter — the start of a much wider effort to document and revive the heritage the world is quietly losing.</p>
+      <div class="home-cta">
+        <a href="#documentary" class="btn btn-primary">▶ Watch the Film</a>
+        <a href="#about" class="btn btn-outline">Enter Reshvah</a>
+      </div>
+      <div class="home-tri"></div>
+    </div>
+  </section>
+
+  <section id="home-launcher">
+    <div class="container">
+      <p class="eyebrow" style="text-align:center;">Explore</p>
+      <h2 class="title" style="text-align:center;">Find your way <em>in</em></h2>
+      <div class="launcher-grid">
+        <a class="launcher-card" href="#about"><div class="lic">🧵</div><div class="lt">About</div><div class="ld">Who Reshvah is</div></a>
+        <a class="launcher-card" href="#vision-mission"><div class="lic">🌅</div><div class="lt">Vision</div><div class="ld">Where we're going</div></a>
+        <a class="launcher-card" href="#vision-mission"><div class="lic">🎯</div><div class="lt">Mission</div><div class="ld">What we do now</div></a>
+        <a class="launcher-card" href="#bhagalpur"><div class="lic">📜</div><div class="lt">Bhagalpur History</div><div class="ld">200 years, briefly</div></a>
+        <a class="launcher-card" href="#gallery"><div class="lic">🖼️</div><div class="lt">Gallery</div><div class="ld">From the field</div></a>
+        <a class="launcher-card" href="#documentary"><div class="lic">🎬</div><div class="lt">Documentary</div><div class="ld">Watch the footage</div></a>
+        <a class="launcher-card" href="#team"><div class="lic">👥</div><div class="lt">Core Team</div><div class="ld">Who's behind this</div></a>
+        <a class="launcher-card" href="#get-involved"><div class="lic">✉️</div><div class="lt">Get Involved</div><div class="ld">Join the chapter</div></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="home-film">
+    <div class="container">
+      <p class="eyebrow">Field Footage · 2026</p>
+      <h2 class="title">Watch the <em>Documentary</em></h2>
+      <div class="film-wrap">
+        <iframe
+  src="https://drive.google.com/file/d/1jUO2fEbfm1epeU77dFhd8pzPtWzA95hP/preview"
+  width="100%"
+  height="480"
+  allow="autoplay"
+  allowfullscreen
+  style="border:0;display:block;background:#000;">
+</iframe>
+        <div class="film-meta">
+          <div>
+            <h3>Reshvah Field Documentary — Bhagalpur, 2026</h3>
+            <p>Raw footage from Reshvah's field visits, filmed ahead of launch.</p>
+          </div>
+          <a href="#documentary" class="btn btn-primary" style="padding:11px 20px;">See all chapters →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page" id="page-about">
+  <section>
+      <svg class="corner-mandala" viewBox="0 0 240 240" aria-hidden="true">
+        <circle cx="120" cy="120" r="112" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="120" cy="120" r="90" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="60" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+          <g transform="rotate(0 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(22.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(45 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(67.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(90 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(112.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(135 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(157.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(180 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(202.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(225 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(247.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(270 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(292.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(315 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(337.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+        <circle cx="120" cy="120" r="30" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="4" fill="currentColor"/>
+      </svg>
+    <div class="container">
+      <a href="#home" class="back-home"><span class="arrow">←</span> Back to Home</a>
+      <p class="eyebrow">Who We Are</p>
+      <h2 class="title">About <em>Reshvah</em></h2>
+      <div class="thread-rule"><span class="knot"></span></div>
+      <p class="desc">Reshvah Initiative is a youth-led movement working to make sure heritage that is fading doesn't fade unnoticed. We started with silk. We didn't start there because silk is the only thing worth saving — we started there because it's where we happened to be standing.</p>
+
+      <div class="heritage-band">
+        <span class="lbl">What we mean by heritage</span>
+        <p>Heritage can be a craft, a language, a story, a piece of architecture, a dance, a tradition, a community, a memory, or simply a way of life.</p>
+      </div>
+
+      <div class="origin-block">
+        <div class="origin-words">
+          <span class="devnagari">रेशम</span><span class="plus">+</span><span class="devnagari">प्रवाह</span><span class="eq">=</span><span class="devnagari">रेशवाह</span>
+        </div>
+        <p class="desc" style="margin-top:0;max-width:520px;">
+          <em>Resham</em> is silk — thread, in its rawest form. <em>Pravah</em> is flow — the way a river, a story, or a skill moves forward across time. Put together, Reshvah is heritage that isn't frozen behind glass, but kept alive by moving: from hand to hand, generation to generation, place to place.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <h3 style="font-size:1.15rem;margin-bottom:10px;">How it started</h3>
+          <p class="desc" style="max-width:none;">Reshvah began with an uncomfortable observation. A craft that had survived two centuries, that carries a Geographical Indication tag and reaches export markets, was still struggling to keep its own weavers' children interested in continuing it. A small group of students and young researchers started visiting Bhagalpur's weaving clusters, not to write one more report that would sit unread, but to build something that could actually connect what they documented to people who could act on it. Reshvah Initiative is what came out of that: research-first, honest about what it doesn't know yet, and built to grow as each new city finds a fellow willing to do the same.</p>
+          <span class="badge-youth">🌱 A youth-led initiative</span>
+        </div>
+        <div>
+          <h3 style="font-size:1.15rem;margin-bottom:10px;">A network, not a headquarters</h3>
+          <p class="desc" style="max-width:none;">Bhagalpur is chapter one, not the whole plan. Reshvah isn't a headquarters issuing instructions outward — it's a growing network of research fellows, each anchored to a heritage that matters to them personally, working the same honest way we started in Bhagalpur. What holds the network together isn't a template. It's a shared standard for what "properly documented" means.</p>
+        </div>
+      </div>
+
+      <div class="heritage-band" style="margin-top:34px;">
+        <span class="lbl">Research Fellows — Their City, Their Story</span>
+        <p>Each new chapter is carried by a research fellow rooted in that place — not a volunteer following a script, but someone documenting a heritage that's already theirs: a craft they grew up watching, a language their grandparents spoke, a building on their own street. A fellow chooses their own city's heritage, does the fieldwork — interviews, photographs, oral histories, records — and tells that story in their own words, the way Bhagalpur's chapter was built. What they send back is raw and personal: a first draft of memory, before anyone else touches it. From there, it's the Research Team's job — not the fellow's — to verify what's been sent, so every chapter that joins the archive is both deeply personal and rigorously true.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card"><div class="ic">📍</div><h3>Rooted locally</h3><p>Every chapter starts with real people, real looms, real conversations — not a template applied from elsewhere.</p></div>
+        <div class="card"><div class="ic">🧑‍🤝‍🧑</div><h3>Carried by fellows</h3><p>Research fellows document their own city's heritage in their own words, then hand it to the Research Team for verification.</p></div>
+        <div class="card"><div class="ic">🌍</div><h3>Joined globally</h3><p>Every verified chapter feeds one shared archive — so no single craft's story has to survive in isolation.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page" id="page-vision-mission">
+  <section>
+      <svg class="corner-mandala left" viewBox="0 0 240 240" aria-hidden="true">
+        <circle cx="120" cy="120" r="112" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="120" cy="120" r="90" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="60" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+          <g transform="rotate(0 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(22.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(45 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(67.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(90 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(112.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(135 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(157.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(180 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(202.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(225 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(247.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(270 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(292.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(315 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(337.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+        <circle cx="120" cy="120" r="30" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="4" fill="currentColor"/>
+      </svg>
+    <div class="container">
+      <a href="#home" class="back-home"><span class="arrow">←</span> Back to Home</a>
+      <p class="eyebrow">Where We're Going</p>
+      <h2 class="title">Vision &amp; <em>Mission</em></h2>
+      <div class="thread-rule"><span class="knot"></span></div>
+
+      <div class="grid-2" style="margin-top:30px;">
+        <div class="pull-quote">
+          <div class="pq-label">Vision</div>
+          <blockquote>A world where dying heritage crafts don't disappear silently — where the people who still know how to make them have the visibility, dignity, and market access to pass the skill on.</blockquote>
+        </div>
+        <div class="pull-quote">
+          <div class="pq-label">Mission</div>
+          <blockquote>Reshvah documents Bhagalpur's silk heritage rigorously, connects it to researchers and volunteers worldwide, and builds the awareness and tools needed for its revival — starting in Bhagalpur, with the aim of applying the same model to other endangered heritage over time.</blockquote>
+        </div>
+      </div>
+
+      <div class="heritage-band" style="margin-top:34px;">
+        <span class="lbl">A deliberately wide definition</span>
+        <p>Heritage can be a craft, a language, a story, a piece of architecture, a dance, a tradition, a community, a memory, or simply a way of life — and our vision reaches beyond Bhagalpur silk to more of it, worldwide.</p>
+      </div>
+
+      <p class="desc" style="margin-top:30px;">Our vision isn't bounded by one district or one craft. It's about building a working model — starting here, tested honestly here — carried forward by research fellows who each bring their own city's heritage, in their own words, into a shared, growing archive, checked and verified before it ever gets called truth.</p>
+    </div>
+  </section>
+</div>
+
+<div class="page" id="page-bhagalpur">
+  <section>
+      <svg class="corner-mandala" viewBox="0 0 240 240" aria-hidden="true">
+        <circle cx="120" cy="120" r="112" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="120" cy="120" r="90" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="60" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+          <g transform="rotate(0 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(22.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(45 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(67.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(90 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(112.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(135 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(157.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(180 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(202.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(225 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(247.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(270 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(292.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(315 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(337.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+        <circle cx="120" cy="120" r="30" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="4" fill="currentColor"/>
+      </svg>
+    <div class="container">
+      <a href="#home" class="back-home"><span class="arrow">←</span> Back to Home</a>
+      <p class="eyebrow">Bhagalpur Chapter</p>
+      <h2 class="title">A Flow, Not a <em>File</em></h2>
+      <div class="thread-rule"><span class="knot"></span></div>
+      <p class="desc">Kept honest and sourced on purpose. This is a starting sketch of 200 years, not the full research record. We call it a flow — <span class="devnagari">प्रवाह</span>, <em>pravah</em> — on purpose: a timeline that only looks backward misses the point. This one has to keep moving forward too.</p>
+
+      <div class="dark-band">
+        <div class="stats-bar">
+          <div class="stat"><div class="stat-num">200+</div><div class="stat-label">Years of Craft</div><div class="stat-src">Buchanan-Hamilton, 1810–11</div></div>
+          <div class="stat"><div class="stat-num">35,000+</div><div class="stat-label">Weavers</div><div class="stat-src">ODOP Bhagalpur, Govt. of Bihar</div></div>
+          <div class="stat"><div class="stat-num">25,000</div><div class="stat-label">Handlooms</div><div class="stat-src">ODOP Bhagalpur</div></div>
+          <div class="stat"><div class="stat-num">₹120 Cr</div><div class="stat-label">Annual Trade, FY22–23</div><div class="stat-src">District Industries Centre</div></div>
+          <div class="stat"><div class="stat-num">2013</div><div class="stat-label">GI Tag Granted</div><div class="stat-src">GI Registry, Chennai</div></div>
+        </div>
+      </div>
+
+      <div class="flow">
+        <div class="flow-item">
+          <div class="flow-tag">1810–11 · Past</div>
+          <h4>First Documented Account</h4>
+          <p>Francis Buchanan-Hamilton's survey of the district gives one of the earliest written accounts of Tussar silk production around Bhagalpur — the earliest fixed point in this craft's recorded history.</p>
+        </div>
+        <div class="flow-item">
+          <div class="flow-tag">1800s – 1900s · Past</div>
+          <h4>Bhagalpur Becomes "Silk City"</h4>
+          <p>Over more than a century, Tussar and Katan silk weaving grows from a household skill into the district's defining industry, carried forward household by household, loom by loom.</p>
+        </div>
+        <div class="flow-item">
+          <div class="flow-tag">2013 · Present</div>
+          <h4>Geographical Indication Tag</h4>
+          <p>"Bhagalpur Silk" is formally granted its GI tag on 15 January 2013 — official recognition of what weaver families had already known for two centuries.</p>
+        </div>
+        <div class="flow-item">
+          <div class="flow-tag">Today · Present &amp; Crisis</div>
+          <h4>A Living Craft, Under Real Pressure</h4>
+          <p>35,000+ weavers still work roughly 25,000 handlooms, exporting to West Asia, Europe, the US, and Japan. But published research points to a slow squeeze, not a single collapse — the fuller picture is laid out below.</p>
+        </div>
+        <div class="flow-item">
+          <div class="flow-tag">Voices · Present</div>
+          <h4>What Weavers Are Saying</h4>
+          <div class="hist-quote" style="margin-top:6px;">
+            <blockquote>"Yarn costs keep rising and synthetic silk sells for a fraction of the price. It's hard to convince my own children to keep weaving."</blockquote>
+            <cite>Illustrative composite, reflecting weaver interviews described in published research (see sources below)</cite>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-tag">In Progress · Revival</div>
+          <h4>How Reshvah Is Responding</h4>
+          <p>Documentation and connection, first. An honest, sourced record of the craft's real situation, linked to the researchers, volunteers, and buyers who can actually act on it — starting with this website, and with the people applying to join the Bhagalpur chapter.</p>
+        </div>
+      </div>
+
+      <div class="thread-rule" style="margin-top:50px;"><span class="knot"></span></div>
+      <p class="eyebrow">Beyond the Timeline</p>
+      <h3 style="font-size:1.35rem;margin-bottom:6px;">The Crisis, Plainly — and Where Revival Could Begin</h3>
+      <p class="desc">The flow above sketches the arc. Here's the fuller, less tidy version — what's actually squeezing the craft, and what a serious response could look like.</p>
+
+      <div class="grid-2">
+        <div class="card" style="border-left:3px solid var(--maroon);">
+          <div class="ic">⚠️</div>
+          <h3>What's Squeezing the Craft</h3>
+          <ul>
+            <li>Rising raw yarn costs eating directly into already-thin weaver margins</li>
+            <li>Cheaper synthetic and power-loom silk undercutting handloom prices in the same markets</li>
+            <li>Limited access to formal bank credit for small and household weaving units</li>
+            <li>Middlemen layers that separate weavers from the final selling price of their own work</li>
+            <li>Fewer young people from weaving families choosing to continue it — the quiet gap that led to Reshvah</li>
+          </ul>
+        </div>
+        <div class="card" style="border-left:3px solid var(--gold);">
+          <div class="ic">🌱</div>
+          <h3>What Revival Could Look Like</h3>
+          <ul>
+            <li>Fair-pricing references so weavers aren't guessing at their own margins</li>
+            <li>Direct-to-buyer channels that cut out layers of markup between loom and customer</li>
+            <li>Documentation and visibility that connects weavers to researchers, buyers, and press who can actually act</li>
+            <li>Careful, weaver-led use of technology — including AI-assisted design and e-commerce — only where it supports the hand rather than replacing it</li>
+            <li>A verified, honest public record, so support goes to what's real rather than what's well-marketed</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="src-note" style="margin-top:34px;">Sourced from: ODOP Bhagalpur (Govt. of Bihar) · GI Registry, Chennai · Ministry of Textiles, GoI · Buchanan-Hamilton survey, 1810–11 · Kumari &amp; Dutta (2025), <em>Unravelling Threads: The Decline of Bhagalpur Silk Art</em>, Springer · Swaroop &amp; Mani (2025), <em>Bhagalpur Textile Industry</em>, IJAAR Vol. 11, No. 6. Corrections welcome — write to us.</div>
+    </div>
+  </section>
+</div>
+
+<div class="page" id="page-gallery">
+  <section>
+      <svg class="corner-mandala left" viewBox="0 0 240 240" aria-hidden="true">
+        <circle cx="120" cy="120" r="112" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="120" cy="120" r="90" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="60" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+          <g transform="rotate(0 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(22.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(45 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(67.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(90 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(112.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(135 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(157.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(180 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(202.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(225 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(247.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(270 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(292.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(315 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(337.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+        <circle cx="120" cy="120" r="30" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="4" fill="currentColor"/>
+      </svg>
+    <div class="container">
+      <a href="#home" class="back-home"><span class="arrow">←</span> Back to Home</a>
+      <p class="eyebrow">In the Field</p>
+      <h2 class="title">Gallery</h2>
+      <div class="thread-rule"><span class="knot"></span></div>
+      <p class="desc">Photography from Reshvah's own chapters — organised by city, as each one grows.</p>
+
+      <h3 style="font-size:1.1rem;margin-top:34px;">Bhagalpur Chapter</h3>
+      <div class="gal-grid">
+
+<a class="gal-tile video" href="#documentary" aria-label="Watch field video: looms in motion, from the Reshvah documentary">
+  <img src="https://cdn.corenexis.com/f/AoPy4PnqDdt.jpeg" alt="Loom in motion — Bhagalpur silk weaving">
+  <span class="video-tag">Field Video</span>
+  <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  <span class="watch-hint">Watch Field Video</span>
+  <span>Loom in motion</span>
+</a>
+
+<div class="gal-tile">
+    <img src="https://cdn.corenexis.com/f/pGU28SxHven.jpeg" alt="Raw Tussar cocoons">
+    <span>Raw Tussar cocoons</span>
+</div>
+                  <div class="gal-tile">
+    <img src="https://cdn.corenexis.com/f/yA9IKQtI0TX.jpeg" alt="Local people of Bhagalpur">
+    <span>Local People</span>
+</div>
+<div class="gal-tile">
+  <img src="https://cdn.corenexis.com/f/utggqqIPDlT.jpeg" alt="Bhagalpur by night — Tussar silk market">
+  <span>Bhagalpur by night</span>
+</div>
+<a class="gal-tile video" href="#documentary" aria-label="Watch field video: weaver interview, from the Reshvah documentary">
+  <img src="https://cdn.corenexis.com/f/Jyoug6bzPw6.jpeg" alt="Weaver interview — Bhagalpur field visit">
+  <span class="video-tag">Field Video</span>
+  <span class="play-badge" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+  <span class="watch-hint">Watch Field Video</span>
+  <span>🎙️ Interview</span>
+</a>
+             </div>
+      <p style="font-size:.78rem;color:var(--muted);margin-top:14px;">Field photography from our 2025–26 Bhagalpur visits — being added here.</p>
+
+      <h3 style="font-size:1.1rem;margin-top:44px;">Other Chapters</h3>
+      <div class="chapter-soon">Coming soon — as new research fellows join Reshvah in other cities, their chapters and their own photography will appear here.</div>
+    </div>
+  </section>
+</div>
+
+<div class="page" id="page-documentary">
+  <section>
+      <svg class="corner-mandala" viewBox="0 0 240 240" aria-hidden="true">
+        <circle cx="120" cy="120" r="112" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="120" cy="120" r="90" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="60" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+          <g transform="rotate(0 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(22.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(45 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(67.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(90 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(112.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(135 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(157.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(180 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(202.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(225 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(247.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(270 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(292.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(315 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(337.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+        <circle cx="120" cy="120" r="30" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="4" fill="currentColor"/>
+      </svg>
+    <div class="container">
+      <a href="#home" class="back-home"><span class="arrow">←</span> Back to Home</a>
+      <p class="eyebrow">Field Footage</p>
+      <h2 class="title">Documentary</h2>
+      <div class="thread-rule"><span class="knot"></span></div>
+      <p class="desc">One full field documentary, and two shorter cuts from the same visit — raw, unscripted footage from the Bhagalpur chapter. A starting record, not a finished film.</p>
+
+      <p class="eyebrow" style="margin-top:40px;">Main Feature</p>
+      <div class="doc-video doc-video-main" id="main-doc-video">
+        <span class="doc-main-badge">🎬 Main Documentary</span>
+       <iframe
+  src="https://drive.google.com/file/d/1jUO2fEbfm1epeU77dFhd8pzPtWzA95hP/preview"
+  width="100%"
+  height="560"
+  allow="autoplay"
+  allowfullscreen
+  style="border:0;display:block;background:#000;">
+</iframe>
+        <div class="doc-video-meta">
+          <h3>Reshvah Field Documentary — Bhagalpur, 2026</h3>
+          <p>The full combined reel from Reshvah's field visits ahead of launch: looms running, a weaver interview, close-up silk production, a visit to weaver families, and Bhagalpur's streets at night. Filmed by the Reshvah team. A fully edited documentary is on the roadmap.</p>
+        </div>
+      </div>
+
+      <p class="eyebrow" style="margin-top:44px;">Shorter Cuts</p>
+      <h3 style="font-size:1.1rem;margin-bottom:4px;">Teasers from the Same Visit</h3>
+      <div class="doc-teaser-grid">
+        <div class="doc-teaser">
+          <span class="doc-teaser-tag">Teaser</span>
+          <iframe class="doc-teaser-frame" src="https://drive.google.com/file/d/17-Z9-PzQ1jgqXbQXujlmi0wZPqpZAuqi/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="doc-teaser-meta">
+            <h4>🎙️ Field Clip — Full Interview Worker 1 </h4>
+            <p>A short excerpt from Reshvah's field visit to Bhagalpur's weaving clusters.</p>
+          </div>
+        </div>
+        <div class="doc-teaser">
+          <span class="doc-teaser-tag">Teaser</span>
+          <iframe class="doc-teaser-frame" src="https://drive.google.com/file/d/1KmSWPsiN8DL6fDLjq8X9svvHLAOxSk4r/preview" allow="autoplay" allowfullscreen></iframe>
+          <div class="doc-teaser-meta">
+            <h4>🧵 Field Clip — Full Interview Worker 2 </h4>
+            <p>Another short cut from the same visit, straight from the loom.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="font-size:1.1rem;margin-top:44px;">Other Chapters</h3>
+      <div class="chapter-soon">Coming soon — as new chapters launch in other cities, their field footage will be added here.</div>
+    </div>
+  </section>
+</div>
+
+<div class="page" id="page-team">
+  <section>
+      <svg class="corner-mandala left" viewBox="0 0 240 240" aria-hidden="true">
+        <circle cx="120" cy="120" r="112" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="120" cy="120" r="90" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="60" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+          <g transform="rotate(0 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(22.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(45 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(67.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(90 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(112.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(135 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(157.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(180 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(202.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(225 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(247.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(270 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(292.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(315 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(337.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+        <circle cx="120" cy="120" r="30" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="4" fill="currentColor"/>
+      </svg>
+    <div class="container">
+      <a href="#home" class="back-home"><span class="arrow">←</span> Back to Home</a>
+      <p class="eyebrow">Who's Behind This</p>
+      <h2 class="title">The <em>Core Team</em></h2>
+      <div class="thread-rule"><span class="knot"></span></div>
+      <p class="desc">Reshvah is a youth-led initiative. Here's who's leading it so far — and where we still need people.</p>
+
+      <div class="founder-row">
+        <div class="team-card">
+          <div class="team-photo" aria-hidden="true">👑</div>
+          <div class="team-name">Mahi Singh</div>
+          <div class="team-role">Founder &amp; CEO</div>
+          <p class="team-bio">Driven by a vision to preserve the heritage of Bhagalpur silk while bringing it to a wider audience.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><img src="https://cdn.corenexis.com/f/2vHfofF6NJ0.jpeg" alt="Managing Director"/></div>
+          <div class="team-name">Ritum Prabhat</div>
+          <div class="team-role">Managing Director</div>
+          <p class="team-bio">Leads technology and digital innovation, focused on building tools that help traditional craftsmanship thrive.</p>
+        </div>
+      </div>
+
+      <p class="desc" style="margin-top:44px;">The five core teams below are still forming. If one of these is you, we'd like to hear from you.</p>
+      <div class="team-grid">
+        <div class="team-card open-role">
+          <div class="team-photo open" aria-hidden="true">🔍</div>
+          <div class="team-name">Research Lead</div>
+          <div class="team-role">Open Position</div>
+          <p class="team-bio">Verifies what research fellows send in from their own cities — checking sources, cross-referencing claims, and catching anything inflated or false before it reaches the archive.</p>
+          <a href="#get-involved" class="apply-link">Apply for this role →</a>
+        </div>
+        <div class="team-card open-role">
+          <div class="team-photo open" aria-hidden="true">📣</div>
+          <div class="team-name">Social Media Lead</div>
+          <div class="team-role">Open Position</div>
+          <p class="team-bio">Carries Reshvah's story to new audiences across platforms.</p>
+          <a href="#get-involved" class="apply-link">Apply for this role →</a>
+        </div>
+        <div class="team-card open-role">
+          <div class="team-photo open" aria-hidden="true">✂️</div>
+          <div class="team-name">Editing Lead</div>
+          <div class="team-role">Open Position</div>
+          <p class="team-bio">Shapes raw field footage and writing into things people actually want to watch and read.</p>
+          <a href="#get-involved" class="apply-link">Apply for this role →</a>
+        </div>
+        <div class="team-card open-role">
+          <div class="team-photo open" aria-hidden="true">🤝</div>
+          <div class="team-name">Outreach Lead</div>
+          <div class="team-role">Open Position</div>
+          <p class="team-bio">Builds relationships with weavers, institutions, and future chapter cities.</p>
+          <a href="#get-involved" class="apply-link">Apply for this role →</a>
+        </div>
+        <div class="team-card open-role">
+          <div class="team-photo open" aria-hidden="true">🗂️</div>
+          <div class="team-name">Managing Lead</div>
+          <div class="team-role">Open Position</div>
+          <p class="team-bio">Keeps volunteers, timelines, and chapters coordinated as Reshvah grows.</p>
+          <a href="#get-involved" class="apply-link">Apply for this role →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page" id="page-get-involved">
+  <section>
+      <svg class="corner-mandala" viewBox="0 0 240 240" aria-hidden="true">
+        <circle cx="120" cy="120" r="112" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="120" cy="120" r="90" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="60" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+          <g transform="rotate(0 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(22.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(45 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(67.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(90 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(112.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(135 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(157.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(180 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(202.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(225 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(247.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(270 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(292.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(315 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(337.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+        <circle cx="120" cy="120" r="30" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="4" fill="currentColor"/>
+      </svg>
+    <div class="container">
+      <a href="#home" class="back-home"><span class="arrow">←</span> Back to Home</a>
+      <p class="eyebrow">Join Reshvah</p>
+      <h2 class="title">Your Chance to Become <em>Core Team</em></h2>
+      <div class="thread-rule"><span class="knot"></span></div>
+      <p class="desc">Reshvah is run by the people who show up for it. Every core team member started exactly here — one application, sent straight to our inbox.</p>
+
+      <div class="role-grid">
+        <div class="role-card"><div class="rc-ic">🔍</div><h4>Research Team</h4><p>Fellows bring in the raw material from their own cities. This team's job is to pressure-test it — verifying sources, cross-checking facts and figures, and flagging anything exaggerated, staged, or fraudulent before it's allowed anywhere near the archive.</p></div>
+        <div class="role-card"><div class="rc-ic">📣</div><h4>Social Media Team</h4><p>Grows Reshvah's presence and tells the weavers' story to new audiences.</p></div>
+        <div class="role-card"><div class="rc-ic">✂️</div><h4>Editing Team</h4><p>Turns raw footage and drafts into polished films, posts, and pages.</p></div>
+        <div class="role-card"><div class="rc-ic">🤝</div><h4>Outreach Team</h4><p>Connects Reshvah with weavers, institutions, and future chapter cities.</p></div>
+        <div class="role-card"><div class="rc-ic">🗂️</div><h4>Managing Team</h4><p>Keeps people, timelines, and chapters running smoothly as we grow.</p></div>
+      </div>
+
+      <div class="form-wrap">
+        <form id="involve-form" novalidate>
+
+          <div class="form-group">
+            <label style="margin-bottom:6px;">How would you like to tell us about yourself?</label>
+            <p style="font-size:.83rem;color:var(--muted);line-height:1.6;margin-bottom:16px;">We need to get a sense of your education, experience and skills. It's quickest to import your information — you can edit it before your profile goes live. Fill in at least one of the three below.</p>
+          </div>
+          <div class="grid-2" style="margin-top:0;">
+            <div class="form-group"><label for="g-linkedin">Import from LinkedIn — Profile URL</label><input type="url" id="g-linkedin" name="linkedin-url" placeholder="https://linkedin.com/in/yourname"/></div>
+            <div class="form-group"><label for="g-resume">Upload Resume (PDF)</label><input type="file" id="g-resume" name="resume" accept="application/pdf"/></div>
+          </div>
+          <div class="form-group"><label for="g-manual">Type Manually — Education, Experience &amp; Skills</label><textarea id="g-manual" name="manual-profile" placeholder="Tell us about your education, experience, and skills"></textarea></div>
+
+          <div class="grid-2">
+            <div class="form-group"><label for="g-name">Full Name</label><input type="text" id="g-name" name="name" required/></div>
+            <div class="form-group"><label for="g-email">Email</label><input type="email" id="g-email" name="email" required/></div>
+          </div>
+          <div class="grid-2">
+            <div class="form-group"><label for="g-phone">Phone</label><input type="tel" id="g-phone" name="phone" required/></div>
+            <div class="form-group"><label for="g-area">Preferred Area</label>
+              <select id="g-area" name="preferred-area" required>
+                <option value="">Select an area</option>
+                <option>Research Team</option>
+                <option>Social Media Team</option>
+                <option>Editing Team</option>
+                <option>Outreach Team</option>
+                <option>Managing Team</option>
+              </select>
+            </div>
+          </div>
+          <div class="grid-2">
+            <div class="form-group"><label for="g-time">Time You Can Give</label>
+              <select id="g-time" name="time-commitment" required>
+                <option value="">Select availability</option>
+                <option>Under 5 hours / week</option>
+                <option>5–10 hours / week</option>
+                <option>10–20 hours / week</option>
+                <option>20+ hours / week</option>
+              </select>
+            </div>
+            <div class="form-group"><label for="g-exp">Relevant Experience</label><input type="text" id="g-exp" name="experience" placeholder="e.g. 2 years in content writing" required/></div>
+          </div>
+          <div class="form-group"><label for="g-message">Why do you want to join Reshvah?</label><textarea id="g-message" name="message" required></textarea></div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Submit Application →</button>
+          </div>
+          <div id="involve-status" class="status-msg"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page" id="page-contact">
+  <section>
+      <svg class="corner-mandala left" viewBox="0 0 240 240" aria-hidden="true">
+        <circle cx="120" cy="120" r="112" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="120" cy="120" r="90" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="60" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+          <g transform="rotate(0 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(22.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(45 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(67.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(90 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(112.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(135 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(157.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(180 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(202.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(225 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(247.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(270 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(292.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(315 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+          <g transform="rotate(337.5 120 120)"><ellipse cx="120" cy="45" rx="12" ry="26" fill="none" stroke="currentColor" stroke-width="1"/></g>
+        <circle cx="120" cy="120" r="30" fill="none" stroke="currentColor" stroke-width="1" opacity=".7"/>
+        <circle cx="120" cy="120" r="4" fill="currentColor"/>
+      </svg>
+    <div class="container">
+      <a href="#home" class="back-home"><span class="arrow">←</span> Back to Home</a>
+      <p class="eyebrow">Reach Us</p>
+      <h2 class="title">Contact <em>Us</em></h2>
+      <div class="thread-rule"><span class="knot"></span></div>
+      <p class="desc">Questions, partnerships, press, or anything else — fill in the form below and it comes straight to our inbox.</p>
+
+      <div class="grid-2" style="margin-top:34px;align-items:start;">
+        <div class="form-wrap" style="margin-top:0;">
+          <form id="contact-form" novalidate>
+            <div class="grid-2" style="margin-top:0;">
+              <div class="form-group"><label for="c-name">Full Name</label><input type="text" id="c-name" name="name" placeholder="" required/></div>
+              <div class="form-group"><label for="c-email">Email</label><input type="email" id="c-email" name="email" placeholder="" required/></div>
+            </div>
+            <div class="form-group"><label for="c-reason">What's this about?</label>
+              <select id="c-reason" name="reason" required>
+                <option value="">Select a reason</option>
+                <option>General question</option>
+                <option>Partnership / collaboration</option>
+                <option>Press / media</option>
+                <option>Weaver or artisan outreach</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="form-group"><label for="c-message">Message</label><textarea id="c-message" name="message" placeholder="" required></textarea></div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Send Message →</button>
+            </div>
+            <div id="contact-status" class="status-msg"></div>
+          </form>
+        </div>
+
+        <div>
+          <div class="contact-info-card">
+            <h3>Prefer email or social?</h3>
+            <p style="font-size:.85rem;color:var(--muted);line-height:1.7;">We read and reply to every message that reaches us — whichever way it arrives.</p>
+            <div class="footer-bottom-cta__inline" style="margin-top:18px;">
+              <span class="fb-email" style="display:block;font-size:.82rem;color:var(--muted);">Write to the initiative directly:<br/><a href="mailto:reshvahinitiative@gmail.com" style="color:var(--maroon);font-weight:700;">reshvahinitiative@gmail.com</a></span>
+            </div>
+          </div>
+
+          <div class="linkedin-card" style="margin-top:22px;">
+            <div>
+              <h3>Follow Reshvah on LinkedIn</h3>
+              <p>Updates on new chapters, research fellows, and the Bhagalpur revival work — as they happen.</p>
+            </div>
+            <a href="https://www.linkedin.com/company/reshvahinitiative/" target="_blank" rel="noopener">View LinkedIn →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:34px;text-align:center;">
+        <h3 style="margin-bottom:8px;">Looking to join the team instead?</h3>
+        <p style="margin-bottom:16px;">Head over to Get Involved and send us your application.</p>
+        <a href="#get-involved" class="btn btn-primary">Get Involved →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wave-divider" id="footer-wave" aria-hidden="true">
+    <svg viewBox="0 0 1200 24" preserveAspectRatio="none"><path d="M0,12 Q150,-2 300,12 T600,12 T900,12 T1200,12" fill="none" stroke="currentColor" stroke-width="1"/></svg>
+  </div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="brand-logo-img" onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" src="https://cdn.corenexis.com/f/pyA8ZfWpp0g.jpeg" alt="Reshvah Initiative logo"/>
+        <div>
+          <h3>Reshvah Initiative</h3>
+          <p>Rooted in heritage, flowing to the future.</p>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Explore</h4><ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#vision-mission">Vision &amp; Mission</a></li>
+        <li><a href="#bhagalpur">Bhagalpur</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Join Us</h4><ul>
+        <li><a href="#documentary">Documentary</a></li>
+        <li><a href="#team">Core Team</a></li>
+        <li><a href="#get-involved">Get Involved</a></li>
+        <li><a href="https://www.linkedin.com/company/reshvahinitiative/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom-cta">
+      <h4>Have a question?</h4>
+      <p>Reach us any time — we read and reply to everything.</p>
+      <a href="#contact" class="btn btn-primary">✉ Contact Us</a>
+      <span class="fb-email">or write directly to <a href="mailto:reshvahinitiative@gmail.com">reshvahinitiative@gmail.com</a></span>
+    </div>
+    <div class="footer-bottom">
+      © 2025–2026 Reshvah Initiative · A youth-led initiative. Research use permitted with attribution.<br/>
+      Bhagalpur Chapter launched 15 August 2026 — Independence Day.<br/>
+      Founder &amp; CEO — Mahi Singh · Managing Director — Ritum Prabhat
+    </div>
+  </div>
+</footer>
+
+<script>
+function closeMenu(){ document.getElementById('mobile-menu').classList.remove('open'); }
+
+const PAGES = ['home','about','vision-mission','bhagalpur','gallery','documentary','team','get-involved','contact'];
+function router(){
+  let hash = (location.hash || '#home').replace('#','');
+  if(!PAGES.includes(hash)) hash = 'home';
+  PAGES.forEach(p=>{
+    document.getElementById('page-'+p).classList.toggle('active', p===hash);
+  });
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.classList.toggle('active', a.dataset.page===hash);
+  });
+  if(hash==='home'){
+    const hi = document.querySelector('#page-home .home-inner');
+    hi.classList.remove('play');
+    void hi.offsetWidth;
+    hi.classList.add('play');
+  }
+  const fw = document.getElementById('footer-wave');
+  if(fw) fw.style.display = (hash==='home') ? 'none' : 'block';
+  window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+}
+window.addEventListener('hashchange', router);
+window.addEventListener('DOMContentLoaded', router);
+
+// Ensure logo images that were already cached/loaded before this script runs
+// still get the entrance animation applied (covers instant cache hits).
+window.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.brand-logo-img').forEach(function(img){
+    if(img.complete && img.naturalWidth > 0){
+      img.classList.add('loaded');
+    }
+  });
+});
+
+document.querySelectorAll('.mini-video-tile').forEach(tile=>{
+  tile.addEventListener('click', function(e){
+    e.preventDefault();
+    const target = document.getElementById('main-doc-video');
+    if(!target) return;
+    target.scrollIntoView({behavior:'smooth', block:'center'});
+    const vid = target.querySelector('video');
+    if(vid){ vid.play().catch(()=>{}); }
+  });
+});
+
+const OWNER_EMAIL = 'reshvahinitiative@gmail.com';
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/' + OWNER_EMAIL;
+
+function validateRequired(form){
+  const required = form.querySelectorAll('[required]');
+  for(const field of required){
+    if(!field.value || !field.value.trim()){ field.focus(); return false; }
+  }
+  const emailField = form.querySelector('input[type=email]');
+  if(emailField && emailField.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value)){ emailField.focus(); return false; }
+  return true;
+}
+
+async function submitToInbox(form, statusEl, btn, mailtoSubject, mailtoBody){
+  if(!validateRequired(form)){
+    statusEl.style.display='block'; statusEl.style.color='#e0736a';
+    statusEl.textContent='Please fill in all required fields with valid values.';
+    return;
+  }
+  const originalLabel = btn.textContent;
+
+  try{
+    const fd = new FormData(form);
+    fd.append('_subject', mailtoSubject);
+    fd.append('_template', 'table');
+    fd.append('_captcha', 'false');
+    fetch(FORM_ENDPOINT, { method:'POST', headers:{ 'Accept':'application/json' }, body: fd }).catch(function(){});
+  }catch(err){ }
+
+  const mailto = 'mailto:' + OWNER_EMAIL + '?subject=' + encodeURIComponent(mailtoSubject) + '&body=' + encodeURIComponent(mailtoBody);
+  window.location.href = mailto;
+
+  statusEl.style.display='block';
+  statusEl.style.color='#4CBB5F';
+  statusEl.textContent='Your email app should now be open with the message ready. Click Send there to deliver it to us.';
+  form.reset();
+
+  btn.textContent = originalLabel;
+  setTimeout(function(){ statusEl.style.display='none'; },10000);
+}
+
+document.getElementById('involve-form').addEventListener('submit', e=>{
+  e.preventDefault();
+  const form = e.target;
+  const name = document.getElementById('g-name').value.trim();
+  const email = document.getElementById('g-email').value.trim();
+  const phone = document.getElementById('g-phone').value.trim();
+  const area = document.getElementById('g-area').value;
+  const time = document.getElementById('g-time').value;
+  const exp = document.getElementById('g-exp').value.trim();
+  const message = document.getElementById('g-message').value.trim();
+  const linkedin = document.getElementById('g-linkedin').value.trim();
+  const manual = document.getElementById('g-manual').value.trim();
+  const resumeFile = document.getElementById('g-resume').files[0];
+  const statusEl = document.getElementById('involve-status');
+
+  if(!linkedin && !manual && !resumeFile){
+    statusEl.style.display='block'; statusEl.style.color='#e0736a';
+    statusEl.textContent='⚠ Please fill in at least one: LinkedIn URL, resume, or manual profile.';
+    return;
+  }
+
+  const profileLines = [];
+  if(linkedin) profileLines.push(`LinkedIn profile: ${linkedin}`);
+  if(resumeFile) profileLines.push(`Resume attached: ${resumeFile.name}`);
+  if(manual) profileLines.push(`Education / experience / skills:\n${manual}`);
+
+  const subject = `Get Involved application — ${name || 'New applicant'} (${area})`;
+  const body = [`Name: ${name}`,`Email: ${email}`,`Phone: ${phone}`,`Preferred Area: ${area}`,`Time available: ${time}`,`Experience: ${exp}`,'',...profileLines,'','Why they want to join:',message].filter(Boolean).join('\n');
+  submitToInbox(form, statusEl, form.querySelector('button[type="submit"]'), subject, body);
+});
+
+document.getElementById('contact-form').addEventListener('submit', e=>{
+  e.preventDefault();
+  const form = e.target;
+  const name = document.getElementById('c-name').value.trim();
+  const email = document.getElementById('c-email').value.trim();
+  const reason = document.getElementById('c-reason').value;
+  const message = document.getElementById('c-message').value.trim();
+  const statusEl = document.getElementById('contact-status');
+
+  const subject = `Contact form — ${reason || 'General question'} — ${name || 'Website visitor'}`;
+  const body = [`Name: ${name}`,`Email: ${email}`,`Reason: ${reason}`,'',`Message:`,message].filter(Boolean).join('\n');
+  submitToInbox(form, statusEl, form.querySelector('button[type="submit"]'), subject, body);
+});
+
+(function(){
+  const c = document.getElementById('chakra-canvas');
+  if(!c) return;
+  const ctx = c.getContext('2d');
+  let W,H;
+  function resize(){ W=c.width=c.offsetWidth; H=c.height=c.offsetHeight; }
+  resize();
+  window.addEventListener('resize', resize, {passive:true});
+
+  const COLORS = ['rgba(255,153,51,0.24)','rgba(18,136,7,0.2)','rgba(11,31,77,0.14)'];
+  let threads = [];
+  function makeThread(golden){
+    return {
+      x:Math.random()*W, y:Math.random()*H,
+      len:120+Math.random()*240, angle:Math.random()*Math.PI*2,
+      speed:0.0018+Math.random()*0.004, amp:26+Math.random()*54,
+      freq:0.003+Math.random()*0.006, t:Math.random()*100,
+      width: golden ? 2.4 : 1+Math.random()*1.4,
+      golden: !!golden,
+      glow: 0
+    };
+  }
+  for(let i=0;i<16;i++) threads.push(makeThread(false));
+  for(let i=0;i<3;i++) threads.push(makeThread(true));
+
+  function draw(){
+    if(!document.getElementById('page-home').classList.contains('active')){
+      requestAnimationFrame(draw); return;
+    }
+    ctx.clearRect(0,0,W,H);
+
+    threads.forEach((th,idx)=>{
+      th.t += th.speed;
+      const golden = th.golden;
+      const color = golden ? `rgba(198,160,70,${0.35+0.15*Math.sin(th.t*3)})` : COLORS[idx % COLORS.length];
+      ctx.beginPath();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = th.width;
+      ctx.lineCap = 'round';
+      if(golden){ ctx.shadowColor='rgba(198,160,70,.55)'; ctx.shadowBlur=6; } else { ctx.shadowBlur=0; }
+      for(let i=0;i<th.len;i+=3){
+        const ox = th.x + Math.cos(th.angle)*i + Math.sin(th.freq*i+th.t)*th.amp;
+        const oy = th.y + Math.sin(th.angle)*i + Math.cos(th.freq*i+th.t)*th.amp*0.5;
+        i===0 ? ctx.moveTo(ox,oy) : ctx.lineTo(ox,oy);
+      }
+      ctx.stroke();
+      ctx.shadowBlur=0;
+      if(th.x<-260||th.x>W+260||th.y<-260||th.y>H+260){ th.x=Math.random()*W; th.y=Math.random()*H; }
+    });
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+
+</body>
+</html>
