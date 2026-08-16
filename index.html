@@ -358,7 +358,13 @@ footer{background:var(--pitch-deep);color:#D9CCAF;padding:52px 0 24px;border-top
 .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:38px;}
 .team-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);text-align:center;}
 .team-photo{width:84px;height:84px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(135deg,rgba(198,160,70,.22),rgba(198,160,70,.06));border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.9rem;overflow:hidden;}
-.team-photo img{width:100%;height:100%;object-fit:cover;}
+.team-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 38%;
+  display:block;
+}
 .team-name{font-size:1.05rem;font-weight:700;color:var(--ink);}
 .team-role{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--maroon);margin-top:4px;font-weight:700;}
 .team-bio{font-size:.82rem;color:var(--muted);margin-top:10px;line-height:1.6;}
@@ -824,8 +830,8 @@ textarea{min-height:100px;resize:vertical;}
 </a>
 
 <div class="gal-tile">
-    <img src="https://cdn.corenexis.com/f/pGU28SxHven.jpeg" alt="Raw Tussar cocoons">
-    <span>Raw Tussar cocoons</span>
+    <img src="https://cdn.corenexis.com/f/pGU28SxHven.jpeg" alt="Reeling Silk">
+    <span>Reeling Silk</span>
 </div>
                   <div class="gal-tile">
     <img src="https://cdn.corenexis.com/f/yA9IKQtI0TX.jpeg" alt="Local people of Bhagalpur">
@@ -961,19 +967,21 @@ textarea{min-height:100px;resize:vertical;}
 
       <div class="founder-row">
         <div class="team-card">
-          <div class="team-photo" aria-hidden="true">👑</div>
+          <div class="team-photo">
+  <img src="https://cdn.corenexis.com/f/2KlAzMGVqQY.jpeg" alt="Mahi Singh — Founder & CEO"/>
+</div>
           <div class="team-name">Mahi Singh</div>
           <div class="team-role">Founder &amp; CEO</div>
           <p class="team-bio">Driven by a vision to preserve the heritage of Bhagalpur silk while bringing it to a wider audience.</p>
         </div>
         <div class="team-card">
-          <div class="team-photo"><img src="https://cdn.corenexis.com/f/2vHfofF6NJ0.jpeg" alt="Managing Director"/></div>
-          <div class="team-name">Ritum Prabhat</div>
-          <div class="team-role">Managing Director</div>
-          <p class="team-bio">Leads technology and digital innovation, focused on building tools that help traditional craftsmanship thrive.</p>
-        </div>
-      </div>
-
+  <div class="team-photo">
+    <img src="https://cdn.corenexis.com/f/INsl4Fv3Lbc.jpeg" alt="Ritum Prabhat — Managing Director"/>
+  </div>
+  <div class="team-name">Ritum Prabhat</div>
+  <div class="team-role">Managing Director</div>
+  <p class="team-bio">Leads technology and digital innovation, focused on building tools that help traditional craftsmanship thrive.</p>
+</div>
       <p class="desc" style="margin-top:44px;">The five core teams below are still forming. If one of these is you, we'd like to hear from you.</p>
       <div class="team-grid">
         <div class="team-card open-role">
@@ -1060,14 +1068,18 @@ textarea{min-height:100px;resize:vertical;}
         <form id="involve-form" novalidate>
 
           <div class="form-group">
-            <label style="margin-bottom:6px;">How would you like to tell us about yourself?</label>
-            <p style="font-size:.83rem;color:var(--muted);line-height:1.6;margin-bottom:16px;">We need to get a sense of your education, experience and skills. It's quickest to import your information — you can edit it before your profile goes live. Fill in at least one of the three below.</p>
+           <label style="margin-bottom:6px;">How would you like to tell us about yourself?</label>
+<p style="font-size:.83rem;color:var(--muted);line-height:1.6;margin-bottom:16px;">
+  Choose <strong>ANY ONE</strong> of the three options below. You do not need to complete all three.
+</p>
           </div>
           <div class="grid-2" style="margin-top:0;">
-            <div class="form-group"><label for="g-linkedin">Import from LinkedIn — Profile URL</label><input type="url" id="g-linkedin" name="linkedin-url" placeholder="https://linkedin.com/in/yourname"/></div>
-            <div class="form-group"><label for="g-resume">Upload Resume (PDF)</label><input type="file" id="g-resume" name="resume" accept="application/pdf"/></div>
+            <div class="form-group"><label for="g-linkedin">OPTION 1 — LinkedIn Profile URL</label><input type="url" id="g-linkedin" name="linkedin-url" placeholder="https://linkedin.com/in/yourname"/></div>
+            <div class="form-group"><label for="g-resume">OPTION 2 — Upload Resume (PDF)</label><input type="file" id="g-resume" name="resume" accept="application/pdf"/></div>
           </div>
-          <div class="form-group"><label for="g-manual">Type Manually — Education, Experience &amp; Skills</label><textarea id="g-manual" name="manual-profile" placeholder="Tell us about your education, experience, and skills"></textarea></div>
+          <div class="form-group"><label for="g-manual">OPTION 3 — Write Your Education, Experience &amp; Skills</label><textarea id="g-manual" name="manual-profile" placeholder="Tell us about your education, experience, and skills"></textarea><p style="font-size:.78rem;color:var(--maroon);font-weight:700;margin-top:-6px;margin-bottom:18px;">
+  ✦ ONLY ONE OPTION IS REQUIRED — LinkedIn OR Resume OR Write Manually.
+</p></div>
 
           <div class="grid-2">
             <div class="form-group"><label for="g-name">Full Name</label><input type="text" id="g-name" name="name" required/></div>
@@ -1086,6 +1098,17 @@ textarea{min-height:100px;resize:vertical;}
               </select>
             </div>
           </div>
+<div class="grid-2">
+  <div class="form-group">
+    <label for="g-country">Country *</label>
+    <input type="text" id="g-country" name="country" placeholder="e.g. India" required/>
+  </div>
+
+  <div class="form-group">
+    <label for="g-state">State *</label>
+    <input type="text" id="g-state" name="state" placeholder="e.g. Bihar" required/>
+  </div>
+</div>
           <div class="grid-2">
             <div class="form-group"><label for="g-time">Time You Can Give</label>
               <select id="g-time" name="time-commitment" required>
@@ -1329,6 +1352,8 @@ document.getElementById('involve-form').addEventListener('submit', e=>{
   const name = document.getElementById('g-name').value.trim();
   const email = document.getElementById('g-email').value.trim();
   const phone = document.getElementById('g-phone').value.trim();
+  const country = document.getElementById('g-country').value.trim();
+  const state = document.getElementById('g-state').value.trim();
   const area = document.getElementById('g-area').value;
   const time = document.getElementById('g-time').value;
   const exp = document.getElementById('g-exp').value.trim();
@@ -1350,7 +1375,22 @@ document.getElementById('involve-form').addEventListener('submit', e=>{
   if(manual) profileLines.push(`Education / experience / skills:\n${manual}`);
 
   const subject = `Get Involved application — ${name || 'New applicant'} (${area})`;
-  const body = [`Name: ${name}`,`Email: ${email}`,`Phone: ${phone}`,`Preferred Area: ${area}`,`Time available: ${time}`,`Experience: ${exp}`,'',...profileLines,'','Why they want to join:',message].filter(Boolean).join('\n');
+const body = [
+  `Name: ${name}`,
+  `Email: ${email}`,
+  `Phone: ${phone}`,
+  `Country: ${country}`,
+  `State: ${state}`,
+  `Preferred Area: ${area}`,
+  `Time available: ${time}`,
+  `Experience: ${exp}`,
+  '',
+  ...profileLines,
+  '',
+  'Why they want to join:',
+  message
+].filter(Boolean).join('\n');
+
   submitToInbox(form, statusEl, form.querySelector('button[type="submit"]'), subject, body);
 });
 
