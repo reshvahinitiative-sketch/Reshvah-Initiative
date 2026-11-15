@@ -1778,8 +1778,8 @@ nav.ch-switch{margin:-8px 0 26px}
   /* full-width reading on inner pages: no framed card, no side gutters */
   .page:not(#page-home):not(#page-wall) > section{padding:0!important}
   .page:not(#page-home):not(#page-wall) > section > .container,
-  .page:not(#page-home) > section:not(#ab-panel):not(.wm-hero) > .container{margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:28px 20px 34px!important;background:rgba(251,248,244,.97)!important}
-  .page:not(#page-home) > section + section > .container{border-top:1px solid var(--line)!important}
+  .page:not(#page-home):not(#page-wall) > section:not(#ab-panel):not(.wm-hero) > .container{margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:28px 20px 34px!important;background:rgba(251,248,244,.97)!important}
+  .page:not(#page-home):not(#page-wall) > section + section > .container{border-top:1px solid var(--line)!important}
   .page:not(#page-home):not(#page-wall) > section:first-child > .container{padding-top:92px!important}
   .spine-wrap{display:none!important}
   .page:not(#page-home) .title,.page:not(#page-home):not(#page-wall) .title{font-size:clamp(2rem,9vw,2.6rem)!important;line-height:1.08}
@@ -1899,6 +1899,30 @@ nav.ch-switch{margin:-8px 0 26px}
 .lv-shorts{align-items:start}.lv-short{background:var(--card,#fffaf0)!important}
 .hc-art .hc-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}.hub-card:hover .hc-photo{transform:scale(1.06)}.hc-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),transparent 40%)}.hc-art .hc-no{z-index:2}
 #page-team .team-card .team-photo{align-self:start}
+
+/* page-end prev/next: never squeezed to header height */
+nav.page-nav{display:grid;height:auto!important;max-width:none!important;margin-left:0!important;margin-right:0!important;padding:30px 0 0!important;align-items:stretch;justify-content:stretch}
+@media (max-width:760px){
+  /* no half-faded blocks on phones: show content straight away */
+  html.js [data-rv],.team-card,.adv,.adv-card,.fd,.mw-card,.hub-card,.card{opacity:1!important;transform:none!important}
+  html.js [data-rv]{transition:none!important}
+  /* Wall of Makers keeps its dark campaign look */
+  #page-wall .container{padding-left:20px!important;padding-right:20px!important}
+  .mw-sec{padding:56px 0!important}
+  .mw-wallsec .mw-h2.light,.mw-hero .mw-title{color:#fff!important}
+  .mw-collage{height:330px!important;margin-top:10px}
+  .mw-grid{gap:16px!important}
+  .mw-join{border-radius:22px!important;padding:28px 22px!important}
+  .mw-kids-box{border-radius:22px!important;padding:26px 20px!important}
+  /* Advisory board: richer, clearly dark on phones */
+  .adv{background:linear-gradient(170deg,#3a1d12,#1a0e09)!important;margin-top:40px!important}
+  .adv-sub{color:rgba(245,236,224,.85)!important}
+  .adv-card{border-radius:16px!important;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+  .adv-photo{aspect-ratio:1/1!important}
+  .adv-txt h4{font-size:1.6rem!important}
+  /* page-end cards above the tab bar */
+  .page > .container:last-child{padding-bottom:40px!important}
+}
 </style>
 </head><body class="hero-top">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
